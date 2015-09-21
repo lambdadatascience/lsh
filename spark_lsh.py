@@ -37,8 +37,8 @@ def run(fileName, n_hashes, n_buckets):
     """ Starts the main LSH process.
 
     Args:
-        data (RDD): RDD of lines of text
-        hashes (list): a list of hash values
+        fileName (string): path of text file to read
+        n_hashes (int): number of hash functions to generate
         n_buckets (int): number of buckets to use
 
     Returns:
