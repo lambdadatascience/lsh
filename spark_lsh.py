@@ -49,7 +49,7 @@ def run(fileName, n_hashes, n_buckets):
     stopWords = sc.broadcast(getStopWords())
 
     text = sc.textFile(fileName)
-    stopWords = sc.parallelize(stopWords)
+    stopWords = sc.parallelize(stopWords.value)
     cleanData = text.map(removePunctuation).subtract(stopWords).cache()
 
     #TODO: convert to n-grams
