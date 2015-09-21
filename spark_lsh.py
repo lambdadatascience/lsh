@@ -46,10 +46,9 @@ def run(fileName, n_hashes, n_buckets):
     """
     sc = SparkContext(conf = SparkConf())
     hashes = sc.broacast(getHashFunctions(n_hashes))
-    stopWords = sc.broadcast(getStopWords())
 
     text = sc.textFile(fileName)
-    stopWords = sc.parallelize(stopWords.value)
+    stopWords = sc.textFile('path/to/stopwords')  # Test
     cleanData = text.map(removePunctuation).subtract(stopWords).cache()
 
     #TODO: convert to n-grams
@@ -74,7 +73,7 @@ if __name__ == "__main__":
     n_hashes,n_buckets = args['hashes'], args['buckets']
 
     baseDir = os.path.join(args['input'])
-    inputPath = os.path.join('<path/to/document>')
+    inputPath = os.path.join('<path/to/document>')  # Test
     fileName = os.path.join(baseDir, inputPath)
 
-    lsh.run(fileName, n_hashes, n_buckets)
+    run(fileName, n_hashes, n_buckets)
