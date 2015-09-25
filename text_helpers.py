@@ -1,5 +1,9 @@
-#TODO: use text corpora to transform document, e.g. from plural to singular form
+#TODO: lemmatize words (i.e. return to base or dictionary form of word)
 #TODO: remove other document signs/symbols that do not add relevance to meaning
+#  Could use: str.translate(table[, deletechars])
+#  Returns a copy of the string where all characters occurring in the optional
+#  argument deletechars are removed.
+
 
 import re
 
